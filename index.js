@@ -1,6 +1,7 @@
 const express = require("express");
 const connectDB = require("./config/database");
 const cors = require("cors");
+const port = process.env.PORT || 7777;
 
 const app = new express();
 app.use(express.json());
@@ -13,7 +14,7 @@ app.use("/", productRouter);
 connectDB()
   .then(() => {
     console.log("DB Connection established");
-    app.listen(7777, () => {
+    app.listen(port, () => {
       console.log("app listen to port");
     });
   })
