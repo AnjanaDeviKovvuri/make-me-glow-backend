@@ -8,8 +8,10 @@ app.use(express.json());
 app.use(cors());
 
 const productRouter = require("./routes/productRouter");
+const authRouter = require("./routes/auth");
 
 app.use("/", productRouter);
+app.use("/", authRouter);
 
 connectDB()
   .then(() => {
